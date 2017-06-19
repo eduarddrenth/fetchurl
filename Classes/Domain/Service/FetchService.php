@@ -62,6 +62,18 @@ class FetchService
         $html = $this->getContentFromUrl();
         $html = $this->getBodyContent($html);
         $this->signalSlotDispatcher->dispatch(__CLASS__, __FUNCTION__, [&$html, $this]);
+        $html = $this->rewriteSrc($html);
+        return $html;
+    }
+
+    /**
+     * unconditionaly prepends content of the src attribute with the absolute baseurl of the page
+     * @return string
+     */
+    public function rewriteSrc($html)
+    {
+        $url = preg_replace('/[^\/]*$/', '', $this->getUrl());
+        $html = preg_replace('/ src="([^"]*)"/', ' src="' . $url . '$1"', $html);
         return $html;
     }
 
