@@ -67,13 +67,13 @@ class FetchService
     }
 
     /**
-     * unconditionaly prepends content of the src attribute with the absolute baseurl of the page
+     * prepends content of the src attribute not starting with http or / with the absolute baseurl of the page
      * @return string
      */
     public function rewriteSrc($html)
     {
         $url = preg_replace('/[^\/]*$/', '', $this->getUrl());
-        $html = preg_replace('/ src="([^"]*)"/', ' src="' . $url . '$1"', $html);
+        $html = preg_replace('/ src="(?!http)(?!/)([^"]*)"/', ' src="' . $url . '$1"', $html);
         return $html;
     }
 
