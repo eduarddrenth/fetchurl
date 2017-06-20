@@ -67,7 +67,7 @@ class FetchService
     }
 
     /**
-     * prepends content of the src attribute not starting with http or / with the absolute baseurl of the page
+     * prepends content of the src attribute not starting with http(s): or / with the absolute baseurl of the page
      * @return string
      */
     public function rewriteSrc($html)
