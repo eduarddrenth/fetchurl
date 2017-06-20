@@ -1,5 +1,9 @@
 # TYPO3 extension fetchurl
 
+## Changes in fork of eduarddrenth
+
+The content of src attributes will be prefixed with the path (url excluding everything after the last /) of the page requested via fetchurl. Only non abolute urls (not starting with http(s): or /) in an src attribute will be rewritten.
+
 ## Introduction
 
 Extension fetchurl for TYPO3. Basicly a fork for TYPO3 7, 8 and so on.
