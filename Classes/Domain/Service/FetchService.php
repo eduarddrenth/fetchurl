@@ -73,7 +73,7 @@ class FetchService
     public function rewriteSrc($html)
     {
         $url = preg_replace('/[^\/]*$/', '', $this->getUrl());
-        $html = preg_replace('/ src="(?!https?:)(?!/)([^"]*)"/', ' src="' . $url . '$1"', $html);
+        $html = preg_replace('/ src="(?!https?:)(?!\/)([^"]*)"/', ' src="' . $url . '$1"', $html);
         return $html;
     }
 
