@@ -107,7 +107,7 @@ class FetchService
      */
     protected function getBodyContent($html)
     {
-        if (preg_match('/<body[^>]*>(.*)<\/body>/si', $html, $matches)) {
+        if (preg_match('/<body[^>]*>(.*)<\/body\s*>/si', $html, $matches)) {
             $html = $matches[1];
         }
         return $html;
